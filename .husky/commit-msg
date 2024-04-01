@@ -1,0 +1,27 @@
+#!/bin/sh
+
+commit_msg_header=$(head -n1 "$1")
+commit_msg_header_length=$(echo $commit_msg_header | wc -c | xargs)
+
+# Check if the commit message is too long
+if [ $commit_msg_header_length -gt 51 ]; then
+    echo "ERROR: Commit message is too long ($commit_msg_header_length characters). Max 50 characters allowed."
+    echo "Aborting commit."
+    exit 1
+fi
+
+# Check if the commit message starts with a capital letter
+if ! echo "$commit_msg_header" | grep -q "^[A-Z]"; then
+    echo "ERROR: Commit message must start with a capital letter."
+    echo "Aborting commit."
+    exit 1
+fi
+
+# Check if the commit message ends with a period
+if echo "$commit_msg_header" | grep -q "\.$"; then
+    echo "ERROR: Commit message must not end with a period."
+    echo "Aborting commit."
+    exit 1
+fi
+
+exit 0
