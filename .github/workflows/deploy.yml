@@ -20,6 +20,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Install Node.js as specified in .nvmrc file
+      # If .nvmrc only has a major version then it will try to use LTS release matching the version
+      # Otherwise it downloads and use the matching version of node
+      - name: install node version from .nvmrc
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+
       - name: build react app
         env:
           # REACT_APP_BASENAME is the dir where app is deployed. It is used to specify the basename for react router.
@@ -31,6 +39,7 @@ jobs:
           # REACT_APP_API_SERVER is the url of camelhr api server
           REACT_APP_API_SERVER: https://api.camelhr.com
         run: |
+          node --version
           npm ci
           npm run build
 
