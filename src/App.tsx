@@ -4,7 +4,7 @@ import './App.css'
 const App: FC = () => {
   return (
     <>
-      <div>Hello World!</div>
+      <div>CamelHR</div>
     </>
   )
 }

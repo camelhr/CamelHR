@@ -1,0 +1,29 @@
+name: Test
+
+on:
+  push:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    # Note: GitHub does not pass secrets(for security reasons) to PR workflows created with forked repos
+    # So do not use any actions that require secrets
+    # The GITHUB_TOKEN secret is allowed with readonly access for PR workflows created with forked repos
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Install Node.js as specified in .nvmrc file
+      # If .nvmrc only has a major version then it will try to use LTS release matching the version
+      # Otherwise it downloads and use the matching version of node
+      - name: install node version from .nvmrc
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: run tests
+        run: |
+          node --version
+          npm ci
+          npm test -- --environment=jsdom --coverage --run --reporter default
