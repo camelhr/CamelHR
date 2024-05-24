@@ -1,7 +1,9 @@
-name: Test
+name: Lint
 
 on:
   push:
+    branches:
+      - main
   pull_request: # By default, it will run on opened and synchronize PR events
 
 # Note: GitHub does not pass secrets(for security reasons) to PR workflows created with forked repos
@@ -9,21 +11,17 @@ on:
 # The GITHUB_TOKEN secret is allowed with readonly access for PR workflows created with forked repos
 
 jobs:
-  test:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      # Install Node.js as specified in .nvmrc file
-      # If .nvmrc only has a major version then it will try to use LTS release matching the version
-      # Otherwise it downloads and use the matching version of node
-      - name: install node version from .nvmrc
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: '.nvmrc'
-
-      - name: run tests
+      - name: run lint
         run: |
           node --version
           npm ci
-          npm test -- --environment=jsdom --coverage --run --reporter default
+          npm run lint
+
+      - name: verify prettier
+        run: |
+          npm run prettier:check

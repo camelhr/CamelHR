@@ -51,7 +51,7 @@ jobs:
           sed -i 's/<\/head>/<script>var a=window.location;if("\/"===a.search[1]){var b=a.search.slice(1).split("\&").map(function(a){return a.replace(\/~and~\/g,"\&")}).join("?");window.history.replaceState(null,null,a.pathname.slice(0,-1)+b+a.hash)}<\/script><\/head>/' ./dist/index.html
 
       - name: deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
