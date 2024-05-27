@@ -9,9 +9,11 @@ describe('Renders main page correctly', async () => {
   it('Should render the page correctly', async () => {
     // Setup
     render(<App />)
-    const camelHRText = await screen.queryByText('CamelHR')
+    const registerText = await screen.queryByText('Register')
+    const loginText = await screen.queryByText('Login')
 
     // Expectations
-    expect(camelHRText).toBeInTheDocument()
+    expect(registerText).toBeInTheDocument()
+    expect(loginText).toBeInTheDocument()
   })
 })
