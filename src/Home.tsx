@@ -17,8 +17,8 @@ const Navbar = () => {
   return (
     <>
       {/* nav section */}
-      <nav className=" border-gray-200 bg-white dark:bg-gray-900">
-        <div className="mx-auto flex max-w-screen-2xl flex-wrap items-center justify-between border-b-2 p-4">
+      <nav className=" border-b-2 border-gray-200 bg-white dark:bg-gray-900">
+        <div className="mx-auto flex max-w-screen-2xl flex-wrap items-center justify-between p-4">
           <a
             href="/"
             className="flex items-center space-x-3 rtl:space-x-reverse"
@@ -141,10 +141,10 @@ const Navbar = () => {
       {/* features section */}
       <div className="relative isolate px-6 pt-8 lg:px-8">
         <div className="mx-auto max-w-screen-xl">
-          <h2 className="mb-6 text-3xl font-bold text-gray-800">
+          <h2 className="mb-6 text-3xl font-bold text-gray-800 dark:text-gray-300">
             People management made simple
           </h2>
-          <p className="mb-8 text-gray-600">
+          <p className="mb-8 text-gray-600 dark:text-gray-400">
             Experience the simplicity and efficiency of our platform designed
             with user-friendly features that makes managing your HR processes a
             breeze. CamelHR is the perfect solution for small and medium
@@ -154,7 +154,7 @@ const Navbar = () => {
             platform.
           </p>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
-            <div className="flex flex-col justify-between rounded-lg bg-white p-6 shadow-lg">
+            <div className="rounded-lg bg-white p-6 shadow-lg dark:bg-gray-800">
               <div className="flex items-center justify-center p-10">
                 <img
                   src={selfServiceSvg}
@@ -162,17 +162,17 @@ const Navbar = () => {
                   alt="Employee Self-Service"
                 />
               </div>
-              <h3 className="mb-2 text-xl font-bold text-gray-800">
+              <h3 className="mb-2 text-xl font-bold text-gray-800 dark:text-gray-300">
                 Employee Self-Service
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 dark:text-gray-400">
                 Simplify HR processes and empower employees with a user-friendly
                 self-service portal. Allow them to update personal information,
                 submit time off requests, access important documents, and view
                 their benefits in one convenient location.
               </p>
             </div>
-            <div className="rounded-lg bg-white p-6 shadow-lg">
+            <div className="rounded-lg bg-white p-6 shadow-lg dark:bg-gray-800">
               <div className="flex items-center justify-center p-10">
                 <img
                   src={teamSvg}
@@ -180,17 +180,17 @@ const Navbar = () => {
                   alt="Team Management"
                 />
               </div>
-              <h3 className="mb-2 text-xl font-bold text-gray-800">
+              <h3 className="mb-2 text-xl font-bold text-gray-800 dark:text-gray-300">
                 Team Management
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 dark:text-gray-400">
                 Effortlessly manage your team with our team management feature.
                 Invite employees to join a team, assign roles and permissions,
                 and manage team members with ease. Keep your team organized and
                 productive with our intuitive tools.
               </p>
             </div>
-            <div className="rounded-lg bg-white p-6 shadow-lg">
+            <div className="rounded-lg bg-white p-6 shadow-lg dark:bg-gray-800">
               <div className="flex items-center justify-center p-10">
                 <img
                   src={timeTrackingSvg}
@@ -198,17 +198,17 @@ const Navbar = () => {
                   alt="Time Tracking"
                 />
               </div>
-              <h3 className="mb-2 text-xl font-bold text-gray-800">
+              <h3 className="mb-2 text-xl font-bold text-gray-800 dark:text-gray-300">
                 Time Tracking
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 dark:text-gray-400">
                 Effortlessly manage employee work hours with our intuitive time
                 tracking module. Track time on tasks and projects to ensure
                 accurate payroll processing and real-time visibility into
                 employee productivity.
               </p>
             </div>
-            <div className="rounded-lg bg-white p-6 shadow-lg">
+            <div className="rounded-lg bg-white p-6 shadow-lg dark:bg-gray-800">
               <div className="flex items-center justify-center p-10">
                 <img
                   src={performanceSvg}
@@ -216,17 +216,17 @@ const Navbar = () => {
                   alt="Performance Management"
                 />
               </div>
-              <h3 className="mb-2 text-xl font-bold text-gray-800">
+              <h3 className="mb-2 text-xl font-bold text-gray-800 dark:text-gray-300">
                 Performance Management
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 dark:text-gray-400">
                 Foster a culture of continuous improvement and growth with our
                 performance management feature. Set goals, conduct evaluations,
                 provide feedback, and identify development opportunities to
                 maximize employee potential and drive performance.
               </p>
             </div>
-            <div className="rounded-lg bg-white p-6 shadow-lg">
+            <div className="rounded-lg bg-white p-6 shadow-lg dark:bg-gray-800">
               <div className="flex items-center justify-center p-10">
                 <img
                   src={trainingSvg}
@@ -234,17 +234,17 @@ const Navbar = () => {
                   alt="Training and Development"
                 />
               </div>
-              <h3 className="mb-2 text-xl font-bold text-gray-800">
+              <h3 className="mb-2 text-xl font-bold text-gray-800 dark:text-gray-300">
                 Training and Development
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 dark:text-gray-400">
                 Invest in your employees professional growth and skill
                 development with our training and development module. Schedule,
                 track, and evaluate training programs to enhance employee
                 capabilities, boost engagement, and support career advancement.
               </p>
             </div>
-            <div className="rounded-lg bg-white p-6 shadow-lg">
+            <div className="rounded-lg bg-white p-6 shadow-lg dark:bg-gray-800">
               <div className="flex items-center justify-center p-10">
                 <img
                   src={recruitmentSvg}
@@ -252,17 +252,17 @@ const Navbar = () => {
                   alt="Recruitment and Onboarding"
                 />
               </div>
-              <h3 className="mb-2 text-xl font-bold text-gray-800">
+              <h3 className="mb-2 text-xl font-bold text-gray-800 dark:text-gray-300">
                 Recruitment and Onboarding
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 dark:text-gray-400">
                 Simplify your recruitment process and streamline onboarding for
                 new hires. Post job openings, receive applications, schedule
                 interviews, and seamlessly onboard new employees with our
                 all-in-one recruitment and onboarding solution.
               </p>
             </div>
-            <div className="rounded-lg bg-white p-6 shadow-lg">
+            <div className="rounded-lg bg-white p-6 shadow-lg dark:bg-gray-800">
               <div className="flex items-center justify-center p-10">
                 <img
                   src={reportsSvg}
@@ -270,17 +270,17 @@ const Navbar = () => {
                   alt="Advanced Reporting"
                 />
               </div>
-              <h3 className="mb-2 text-xl font-bold text-gray-800">
+              <h3 className="mb-2 text-xl font-bold text-gray-800 dark:text-gray-300">
                 Advanced Reporting
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 dark:text-gray-400">
                 Gain valuable insights and make data-driven decisions with our
                 advanced reporting tools. Access customizable reports,
                 analytics, and key HR metrics to track performance, monitor
                 trends, and optimize HR strategies for organizational success.
               </p>
             </div>
-            <div className="rounded-lg bg-white p-6 shadow-lg">
+            <div className="rounded-lg bg-white p-6 shadow-lg dark:bg-gray-800">
               <div className="flex items-center justify-center p-10">
                 <img
                   src={integrationSvg}
@@ -288,10 +288,10 @@ const Navbar = () => {
                   alt="App Integration"
                 />
               </div>
-              <h3 className="mb-2 text-xl font-bold text-gray-800">
+              <h3 className="mb-2 text-xl font-bold text-gray-800 dark:text-gray-300">
                 App Integration
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 dark:text-gray-400">
                 Integrate with your favorite apps and tools to streamline your
                 HR processes and enhance productivity. Use our API to connect
                 with other platforms and create a seamless workflow that meets
@@ -308,7 +308,7 @@ const Navbar = () => {
         className="relative isolate px-6 pt-8 lg:px-8"
       >
         <div className="mx-auto max-w-screen-xl">
-          <h2 className="mb-6 text-3xl font-bold text-gray-800">
+          <h2 className="mb-6 text-3xl font-bold text-gray-800 dark:text-gray-300">
             Choose the plan that works for you
           </h2>
           <PricingTable />
@@ -316,7 +316,7 @@ const Navbar = () => {
       </div>
 
       {/* footer section */}
-      <footer className="relative z-10 mt-12 overflow-hidden border-t-2 bg-gray-100 dark:bg-gray-900">
+      <footer className="relative z-10 mt-12 overflow-hidden border-t-2 bg-gray-100 px-4 dark:bg-gray-900">
         <div className="container mx-auto py-12">
           <div className="flex w-full flex-row items-center justify-between">
             <div>
