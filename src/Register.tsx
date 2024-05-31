@@ -1,5 +1,6 @@
 import { FC, useState } from 'react'
 import infoIcon from './assets/icon-info.svg'
+import { Link } from 'react-router-dom'
 
 const Register: FC = () => {
   const [email, setEmail] = useState('')
@@ -188,12 +189,12 @@ const Register: FC = () => {
               </button>
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Already have an account?{' '}
-                <a
-                  href="/login"
+                <Link
+                  to="/login"
                   className="text-primary-600 dark:text-primary-500 font-medium hover:underline"
                 >
                   Login here
-                </a>
+                </Link>
               </p>
             </form>
           </div>
