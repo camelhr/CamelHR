@@ -35,13 +35,6 @@ jobs:
           npm ci
           npm run build
 
-      - name: deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          cname: camelhr.com
-
       - name: deploy to cloudflare pages
         uses: cloudflare/pages-action@v1
         with:
