@@ -28,7 +28,7 @@ jobs:
       - name: build react app
         env:
           # REACT_APP_API_SERVER is the url of camelhr api server
-          # The value will be hardcoded in the build output
+          # The value of below env var will be hardcoded in the build output
           REACT_APP_API_SERVER: https://api.camelhr.com
         run: |
           node --version
