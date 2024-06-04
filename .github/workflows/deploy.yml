@@ -1,6 +1,7 @@
 name: Deploy
 
 on:
+  pull_request: # By default, it will run on opened and synchronize PR events
   push:
     branches:
       - main
@@ -10,12 +11,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy-production:
+  deploy:
     runs-on: ubuntu-latest
-
-    environment:
-      name: Production
-      url: 'https://camelhr.com'
 
     steps:
       - uses: actions/checkout@v4
