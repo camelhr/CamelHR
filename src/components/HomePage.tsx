@@ -1,17 +1,17 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import camelHRLogo from './assets/camelhr-logo.svg'
-import integrationSvg from './assets/integration.svg'
-import performanceSvg from './assets/performance.svg'
-import recruitmentSvg from './assets/recruitment.svg'
-import reportsSvg from './assets/reports.svg'
-import selfServiceSvg from './assets/self-service.svg'
-import teamSvg from './assets/team.svg'
-import timeTrackingSvg from './assets/time-sheet.svg'
-import trainingSvg from './assets/training.svg'
+import camelHRLogo from '../assets/camelhr-logo.svg'
+import integrationSvg from '../assets/integration.svg'
+import performanceSvg from '../assets/performance.svg'
+import recruitmentSvg from '../assets/recruitment.svg'
+import reportsSvg from '../assets/reports.svg'
+import selfServiceSvg from '../assets/self-service.svg'
+import teamSvg from '../assets/team.svg'
+import timeTrackingSvg from '../assets/time-sheet.svg'
+import trainingSvg from '../assets/training.svg'
 
-const Navbar = () => {
+const HomePage = () => {
   const [toggleMenu, setToggleMenu] = useState<boolean>(false)
 
   return (
@@ -395,7 +395,7 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default HomePage
 
 interface PricingTabProps {
   annual: boolean

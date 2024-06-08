@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-const Login: FC = () => {
+const LoginPage: FC = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -125,7 +125,7 @@ const Login: FC = () => {
                       width={20}
                       viewBox="-0.5 0 48 48"
                     >
-                      <g fill="none" fill-rule="evenodd">
+                      <g fill="none" fillRule="evenodd">
                         <path
                           fill="#FBBC05"
                           d="M9.8 24c0-1.5.3-3 .7-4.4l-7.9-6a23.5 23.5 0 0 0 0 20.8l8-6c-.5-1.4-.8-2.9-.8-4.4"
@@ -160,7 +160,7 @@ const Login: FC = () => {
                     >
                       <path
                         fill="#007EBB"
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M44 40h-9.7V26c0-3.7-1.5-6.3-4.9-6.3-2.5 0-4 1.7-4.6 3.4-.3.6-.2 1.4-.2 2.2V40h-9.7V12.8h9.7v4.3c.5-1.9 3.6-4.5 8.5-4.5 6.1 0 10.9 3.9 10.9 12.3V40ZM5.2 9.4C2 9.4 0 7.4 0 4.7S2 0 5.2 0s5.1 2 5.2 4.7c0 2.6-2 4.7-5.2 4.7Zm-4 3.4h8.5V40H1V12.8Z"
                       />
                     </svg>
@@ -188,4 +188,4 @@ const Login: FC = () => {
   )
 }
 
-export default Login
+export default LoginPage
