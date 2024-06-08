@@ -1,8 +1,9 @@
 import { FC, useState } from 'react'
-import infoIcon from './assets/icon-info.svg'
 import { Link } from 'react-router-dom'
 
-const Register: FC = () => {
+import infoIcon from '../assets/icon-info.svg'
+
+const RegisterPage: FC = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [orgName, setOrgName] = useState('')
@@ -204,4 +205,4 @@ const Register: FC = () => {
   )
 }
 
-export default Register
+export default RegisterPage

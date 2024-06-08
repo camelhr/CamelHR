@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-const Login: FC = () => {
+const LoginPage: FC = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -188,4 +188,4 @@ const Login: FC = () => {
   )
 }
 
-export default Login
+export default LoginPage
