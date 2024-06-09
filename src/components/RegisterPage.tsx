@@ -49,10 +49,10 @@ const RegisterPage: FC = () => {
               Create organization's account
             </h1>
             <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
-              <div>
+              <div className="relative mt-2 w-full">
                 <label
                   htmlFor="email"
-                  className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                  className="absolute left-1 top-1 z-10 -translate-y-4 scale-95 transform cursor-text select-none rounded-md bg-white px-2 text-sm font-medium text-gray-600 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-blue-600 dark:bg-gray-800 dark:text-white"
                 >
                   Email
                 </label>
@@ -67,21 +67,7 @@ const RegisterPage: FC = () => {
                   onChange={handleEmailChange}
                 />
               </div>
-              <div>
-                <label
-                  htmlFor="password"
-                  className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  <span className="flex items-center">
-                    Password
-                    <span
-                      data-tip="Must contain at least one uppercase, one lowercase, one number, and one special character"
-                      className="tooltip ml-1 text-gray-500 dark:text-gray-400"
-                    >
-                      <img src={infoIcon} alt="Info" className="h-5" />
-                    </span>
-                  </span>
-                </label>
+              <div className="relative mt-2 w-full">
                 <input
                   id="password"
                   type="password"
@@ -95,31 +81,39 @@ const RegisterPage: FC = () => {
                   pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9]).*"
                   onChange={handlePasswordChange}
                 />
-              </div>
-              <div>
                 <label
-                  htmlFor="confirm-password"
-                  className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                  htmlFor="password"
+                  className="absolute left-1 top-1 z-10 -translate-y-4 scale-95 transform cursor-text select-none rounded-md bg-white px-2 text-sm font-medium text-gray-600 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-blue-600 dark:bg-gray-800 dark:text-white"
                 >
-                  Confirm password
+                  <span className="flex items-center">
+                    Password
+                    <span
+                      data-tip="Must contain at least one uppercase, one lowercase, one number, and one special character"
+                      className="tooltip ml-1 text-gray-500 dark:text-gray-400"
+                    >
+                      <img src={infoIcon} alt="Info" className="h-5" />
+                    </span>
+                  </span>
                 </label>
+              </div>
+              <div className="relative mt-2 w-full">
                 <input
                   id="confirm-password"
-                  type="confirm-password"
+                  type="password"
                   name="confirm-password"
                   placeholder="••••••••"
                   className="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                   required
                   onChange={handleConfirmPasswordChange}
                 />
-              </div>
-              <div>
                 <label
-                  htmlFor="organization-name"
-                  className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                  htmlFor="confirm-password"
+                  className="absolute left-1 top-1 z-10 -translate-y-4 scale-95 transform cursor-text select-none rounded-md bg-white px-2 text-sm font-medium text-gray-600 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-blue-600 dark:bg-gray-800 dark:text-white"
                 >
-                  Organization name
+                  Confirm password
                 </label>
+              </div>
+              <div className="relative mt-2 w-full">
                 <input
                   id="organization-name"
                   type="text"
@@ -130,11 +124,28 @@ const RegisterPage: FC = () => {
                   required
                   onChange={handleOrgNameChange}
                 />
-              </div>
-              <div>
                 <label
-                  htmlFor="organization-subdomain"
-                  className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                  htmlFor="organization-name"
+                  className="absolute left-1 top-1 z-10 -translate-y-4 scale-95 transform cursor-text select-none rounded-md bg-white px-2 text-sm font-medium text-gray-600 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-blue-600 dark:bg-gray-800 dark:text-white"
+                >
+                  Organization name
+                </label>
+              </div>
+              <div className="relative mt-2 w-full">
+                <input
+                  id="organization-subdomain"
+                  type="text"
+                  name="organization_subdomain"
+                  value={orgSubdomain}
+                  className="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                  placeholder="org123"
+                  required
+                  onChange={handleOrgSubdomainChange}
+                />
+
+                <label
+                  htmlFor="email"
+                  className="absolute left-1 top-1 z-10 -translate-y-4 scale-95 transform cursor-text select-none rounded-md bg-white px-2 text-sm font-medium text-gray-600 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-blue-600 dark:bg-gray-800 dark:text-white"
                 >
                   <span className="flex items-center">
                     Organization subdomain
@@ -146,16 +157,6 @@ const RegisterPage: FC = () => {
                     </span>
                   </span>
                 </label>
-                <input
-                  id="organization-subdomain"
-                  type="text"
-                  name="organization_subdomain"
-                  value={orgSubdomain}
-                  className="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                  placeholder="xyz"
-                  required
-                  onChange={handleOrgSubdomainChange}
-                />
               </div>
               <div className="flex items-start">
                 <div className="flex h-5 items-center">
