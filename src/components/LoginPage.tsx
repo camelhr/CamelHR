@@ -1,6 +1,5 @@
 import { FC } from 'react'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 
 const LoginPage: FC = () => {
   const [email, setEmail] = useState('')
@@ -167,18 +166,6 @@ const LoginPage: FC = () => {
                     <span className="ml-2">Linkedin</span>
                   </a>
                 </div>
-              </div>
-
-              <div className="mt-6">
-                <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                  Don't have an account?{' '}
-                  <Link
-                    to="/register"
-                    className="text-primary-600 dark:text-primary-500 font-medium hover:underline"
-                  >
-                    Register here
-                  </Link>
-                </p>
               </div>
             </div>
           </div>
