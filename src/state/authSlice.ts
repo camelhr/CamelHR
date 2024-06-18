@@ -24,7 +24,7 @@ export interface RegisterRequestPayload {
 
 export interface LoginRequestPayload {
   email: string
-  pass: string
+  password: string
   rememberMe: boolean
 }
 
@@ -46,7 +46,7 @@ export const loginAsync = createAsyncThunk(
   async (payload: LoginRequestPayload) => {
     const response = await login(
       payload.email,
-      payload.pass,
+      payload.password,
       payload.rememberMe,
     )
     return response

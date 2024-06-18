@@ -2,13 +2,19 @@ import { FC, useState } from 'react'
 
 import infoIcon from '../assets/icon-info.svg'
 import LoginModal from './LoginModal'
+import { useAppDispatch, useAppSelector } from '../state/hooks'
+import { registerAsync } from '../state/authSlice'
+import { APIStatusType } from '../state/common'
 
 const RegisterPage: FC = () => {
+  const dispatch = useAppDispatch()
   const [loginModalOpen, setLoginModalOpen] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [orgName, setOrgName] = useState('')
   const [orgSubdomain, setOrgSubdomain] = useState('')
+  const apiStatus = useAppSelector((state) => state.auth.status)
+  const apiErrorMsg = useAppSelector((state) => state.auth.errorMessage)
   const passwordValidationMessage =
     'Password must contain at least one uppercase, one lowercase, one number, and one special character'
 
@@ -67,7 +73,14 @@ const RegisterPage: FC = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // TODO: Handle form submission
+    dispatch(
+      registerAsync({
+        email,
+        password,
+        orgSubdomain,
+        orgName,
+      }),
+    )
   }
 
   return (
@@ -80,6 +93,10 @@ const RegisterPage: FC = () => {
               <h1 className="text-xl font-bold text-gray-700 md:text-xl dark:text-white">
                 Create organization's account
               </h1>
+              {apiStatus['registerAsync'] == APIStatusType.FAIL &&
+                apiErrorMsg && (
+                  <div className="text-red-500">{apiErrorMsg}</div>
+                )}
               <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
                 <div className="relative mt-2 w-full">
                   <label
@@ -225,6 +242,9 @@ const RegisterPage: FC = () => {
                 </div>
                 <button
                   type="submit"
+                  disabled={
+                    apiStatus['registerAsync'] === APIStatusType.LOADING
+                  }
                   className="bg-primary-600 hover:bg-primary-700 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 w-full rounded-lg bg-indigo-500 px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4"
                 >
                   Register
