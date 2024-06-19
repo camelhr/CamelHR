@@ -82,7 +82,10 @@ const RegisterPage: FC = () => {
         orgSubdomain,
         orgName,
       }),
-    ).then(() => {
+    ).then((actionResult) => {
+      if (actionResult.meta.requestStatus !== 'fulfilled') {
+        return
+      }
       setRegistrationSuccess(true)
     })
   }
@@ -95,19 +98,20 @@ const RegisterPage: FC = () => {
           <div className="w-full rounded-lg bg-white shadow sm:max-w-md md:mt-0 xl:p-0 dark:border dark:border-gray-700 dark:bg-gray-800">
             <div className="space-y-4 p-6 sm:p-8 md:space-y-6">
               {registrationSuccess ? (
-                <div className="flex flex-col items-center justify-center">
+                <div className="flex flex-col items-center justify-center text-center">
                   <img
                     src={tadaSVG}
                     alt="Registration Successful"
                     className="h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40"
                   />
-                  <h1 className="text-center text-xl font-bold text-gray-700 md:text-xl dark:text-white">
-                    Registration is successful!
-                  </h1>
-                  <h4>
-                    Your organization '{orgName}' is currently in review. We
-                    will reach out to you shortly. Thank you for your patience.
-                  </h4>
+                  <p className="p-2 text-lg font-bold text-gray-700 md:text-lg dark:text-white">
+                    Registration successful!
+                  </p>
+                  <p>
+                    Your organization <b>{orgName}</b> is currently being
+                    reviewed. We will reach out to you shortly. Thank you for
+                    your patience.
+                  </p>
                 </div>
               ) : (
                 <>
