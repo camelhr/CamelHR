@@ -52,6 +52,7 @@ export const login = async (
         ...requestHeaders(),
         'Content-Type': 'application/x-www-form-urlencoded',
       },
+      credentials: 'include',
       body: formBody.toString(),
     },
   )
