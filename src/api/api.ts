@@ -3,11 +3,26 @@ import { extractSubdomain } from '../utils'
 export const API_URL =
   (import.meta.env.VITE_REACT_APP_API_SERVER || '') + '/api/v1'
 
+interface ErrorResponse {
+  error: string
+}
+
 const requestHeaders = (): HeadersInit => {
   const headers: HeadersInit = new Headers()
   headers.set('Accept', 'application/json')
   headers.set('Content-Type', 'application/json')
   return headers
+}
+
+const buildErrorMessages = async (response: Response): Promise<string> => {
+  let error: string = ''
+  try {
+    const errorResponse = (await response.json()) as ErrorResponse
+    error = errorResponse.error
+  } catch (e) {
+    /* response is not json. do nothing */
+  }
+  return error || 'request failed with status: ' + response.status
 }
 
 export const register = async (
@@ -27,8 +42,7 @@ export const register = async (
     }),
   })
   if (!response.ok) {
-    const errorBody = await response.json()
-    throw new Error(errorBody.error || response.statusText)
+    throw new Error(await buildErrorMessages(response))
   }
   return response.text()
 }
@@ -57,8 +71,7 @@ export const login = async (
     },
   )
   if (!response.ok) {
-    const errorBody = await response.json()
-    throw new Error(errorBody.error || response.statusText)
+    throw new Error(await buildErrorMessages(response))
   }
   return response.text()
 }
