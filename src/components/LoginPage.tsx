@@ -3,9 +3,11 @@ import { useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../state/hooks'
 import { loginAsync } from '../state/authSlice'
 import { APIStatusType } from '../state/common'
+import { useNavigate } from 'react-router-dom'
 
 const LoginPage: FC = () => {
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [rememberMe, setRememberMe] = useState(false)
@@ -26,7 +28,11 @@ const LoginPage: FC = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    dispatch(loginAsync({ email, password, rememberMe }))
+    dispatch(loginAsync({ email, password, rememberMe })).then((result) => {
+      if (loginAsync.fulfilled.match(result)) {
+        navigate('/')
+      }
+    })
   }
 
   return (

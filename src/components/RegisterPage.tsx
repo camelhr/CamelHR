@@ -82,11 +82,10 @@ const RegisterPage: FC = () => {
         orgSubdomain,
         orgName,
       }),
-    ).then((actionResult) => {
-      if (actionResult.meta.requestStatus !== 'fulfilled') {
-        return
+    ).then((result) => {
+      if (registerAsync.fulfilled.match(result)) {
+        setRegistrationSuccess(true)
       }
-      setRegistrationSuccess(true)
     })
   }
 
